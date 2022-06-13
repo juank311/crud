@@ -2,7 +2,7 @@
 
     //Conectar a Mysql
     //variable contenedora = funcion("servidor", "usuario", "base_de_datos")
-    $con = mysqli_connect("localhost", "root", "", "crud");
+    $con = mysqli_connect("localhost", "root", "102030", "crud");
 
     //Probar conexión
    /*  if(mysqli_connect_errno()){

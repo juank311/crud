@@ -10,7 +10,7 @@ $phone_user = '';
 $email_user = '';
 
 $query = "SELECT * FROM usuarios where id='$id_user' ";
-$user = mysqli_query($con, $query) or die (mysqli_error());
+$user = mysqli_query($con, $query) or die (mysqli_error($c));
 
 //volcar los datos  a una fila en forma de array asociativa 
 
@@ -25,9 +25,9 @@ if (isset($_POST['borrar_registro'])) {
 
     $query = "DELETE FROM usuarios  WHERE id='$id_user' ";
     mysqli_query($con, $query);
-    echo "Se ha BORRADO correctamente el usuario"; 
-              
-    header('Location: index.php');
+    
+    $mensaje= "Se ha BORRADO correctamente el usuario"; 
+    header('Location: index.php?mensaje='.urldecode($mensaje));
     exit();
         
 }

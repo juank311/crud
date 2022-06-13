@@ -3,10 +3,6 @@
 
 <?php
 
-$name_user = '';
-$last_name_user = '';
-$phone_user = '';
-$email_user = '';
 
 if (isset($_POST['crearRegistro'])) {
     $name_user = mysqli_real_escape_string ($con, $_POST['name_user']);
@@ -27,11 +23,12 @@ if (isset($_POST['crearRegistro'])) {
     }else{
         $query = "INSERT INTO usuarios(name_user, last_name_user, phone_user, email_user) VALUES('$name_user', '$last_name_user', '$phone_user', '$email_user')";
                 
-        if(!mysqli_query($con, $query)) {
+        if (!mysqli_query($con, $query)) {
             die('Error: ' . mysqli_error($con));
             $error =  "fallo la conexion con la consulta";
-        }else {
+        } else {
             $mensaje =  "Se ha añadido un nuevo registro";
+            header('Location: index.php?mensaje='.urldecode($mensaje));
         } 
     }
 }

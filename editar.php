@@ -10,7 +10,7 @@ $phone_user = '';
 $email_user = '';
 
 $query = "SELECT * FROM usuarios where id='$id_user' ";
-$user = mysqli_query($con, $query) or die (mysqli_error());
+$user = mysqli_query($con, $query) or die (mysqli_error($con));
 
 //volcar los datos  a una fila en forma de array asociativa 
 
@@ -39,7 +39,7 @@ if (isset($_POST['editar_registro'])) {
             $error =  "fallo la actualizacion";
         }else{
             $mensaje = "Se ha actualizado correctamente el usuario";
-            header('Location: index.php');
+            header('Location: index.php?mensaje='.urldecode($mensaje));
             exit();
             }
 
