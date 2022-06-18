@@ -1,7 +1,7 @@
 <?php require 'conexion.php'?>
 
 <?php
-
+//hola 
 //Obtener id enviado desde email por metodo GET
 $id_user = $_GET['id'];
 $name_user = '';
